@@ -18,7 +18,7 @@ body {
   padding: 10px 0px;
 }
 
-#courses :last-child {
+.courses :last-child {
   border: 0;
 }
 
@@ -43,7 +43,7 @@ body {
   background: #555;
 }
 
-#courses {
+.courses {
   max-height: calc(100vh - 80px);
 }
 

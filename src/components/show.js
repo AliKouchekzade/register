@@ -1,4 +1,6 @@
 const Show = ({ res }) => {
+  const number = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+
   const render = () => {
     const days = [
       "شنبه",
@@ -50,7 +52,9 @@ const Show = ({ res }) => {
                   (course.time[index].end - course.time[index].start) * 10
                 } bg-red-100 m-0.5 text-[10px] flex flex-col justify-evenly rounded-md items-center text-center overflow-hidden`}
               >
-                <p>{course.name}</p>
+                <p>
+                  {course.name}-{number[course.GNo]}
+                </p>
                 <p>{course.professor}</p>
               </div>
             ));
@@ -62,5 +66,3 @@ const Show = ({ res }) => {
 };
 
 export default Show;
-
-/**/
