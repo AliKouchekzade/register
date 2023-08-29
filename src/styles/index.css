@@ -9,14 +9,17 @@
   src: url("./fonts/estedad.woff2") format("woff2");
 }
 
-
 body {
   font-family: "estedad";
 }
 
 .Collapsible {
-  border-bottom: 1px solid #CBCBCB;
-  padding: 10px;
+  border-bottom: 1px solid #cbcbcb;
+  padding: 10px 0px;
+}
+
+#courses :last-child {
+  border: 0;
 }
 
 /* width */
@@ -38,4 +41,20 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+#courses {
+  max-height: calc(100vh - 80px);
+}
+
+#coursesDiv {
+  max-height: calc(100vh - 200px);
+}
+
+input[type="checkbox"] {
+  accent-color: rgb(13, 154, 13);
+}
+
+input[type="checkbox"]:hover {
+  accent-color: rgb(13, 154, 13);
 }
