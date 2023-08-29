@@ -1,3 +1,5 @@
+
+
 function overlap(A, B) {
   const sameDays = findSameDays(A.days, B.days);
   if (!sameDays.length) return false;
@@ -34,29 +36,33 @@ const findSameDays = (dayA, dayB) =>
 const overlapInterval = (timeA, timeB) =>
   timeA.start < timeB.end && timeB.start < timeA.end;
 
-export default function hasOverLap(arr, r = 2) {
-  let over = false;
-
-  let n = arr.length;
-  let data = new Array(r);
-  data.fill({});
-
-  function combinationUtil(arr, n, r, index, data, i) {
-    if (over) return;
-
-    if (index === r) {
-      over = overlap(data[0], data[1]) || over;
-      return;
+console.log(
+  overlap(
+    {
+      ID: 257433,
+      No: 25743,
+      GNo: 3,
+      unit: 4,
+      name: "مدارهای منطقی وسیستم دیجیتال و آز",
+      professor: "محمود تابنده",
+      days: [1, 3],
+      time: [
+        { start: 10.5, end: 12 },
+        { start: 10.5, end: 12 },
+        
+      ],
+      days2: "یک‌شنبه و سه‌شنبه 10:30 تا 12، یک‌شنبه 13 تا 16",
+    },
+    {
+      ID: 250022,
+      No: 25002,
+      GNo: 2,
+      unit: 1,
+      name: "آز الکترونیک ۱ ",
+      professor: "مرتضی غفورزاده",
+      days: [1],
+      time: [{ start: 13, end: 16 }],
+      days2: "یک‌شنبه 13 تا 16",
     }
-
-    if (i >= n) return;
-
-    data[index] = arr[i];
-    combinationUtil(arr, n, r, index + 1, data, i + 1);
-
-    combinationUtil(arr, n, r, index, data, i + 1);
-  }
-
-  combinationUtil(arr, n, r, 0, data, 0);
-  return over;
-}
+  )
+);
