@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Courses from "./components/courses";
 import { printCombination } from "./utils/plan";
+import Show from "./components/show";
 
 function App() {
   const [res, setRes] = useState([]);
@@ -18,17 +19,3 @@ function App() {
 }
 
 export default App;
-
-const Show = ({ res }) => {
-  return (
-    <section className="h-[7000px] border flex-grow rounded">
-      {res.map((plan) => (
-        <div key={Math.random()} className="border">
-          {plan.map((course) => (
-            <p key={course.ID}>{course.professor}</p>
-          ))}
-        </div>
-      ))}
-    </section>
-  );
-};

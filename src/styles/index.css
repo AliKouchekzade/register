@@ -58,3 +58,128 @@ input[type="checkbox"] {
 input[type="checkbox"]:hover {
   accent-color: rgb(13, 154, 13);
 }
+
+#plan {
+  grid-template-columns: 70px repeat(21, 30px);
+  grid-template-rows: repeat(8, 56px);
+}
+
+.day0 {
+  grid-row-start: 2;
+}
+
+.day1 {
+  grid-row-start: 3;
+}
+
+.day2 {
+  grid-row-start: 4;
+}
+
+.day3 {
+  grid-row-start: 5;
+}
+
+.day4 {
+  grid-row-start: 6;
+}
+
+.day5 {
+  grid-row-start: 7;
+}
+
+.day6 {
+  grid-row-start: 8;
+}
+
+.interval15 {
+  grid-column: span 3 / span 3;
+}
+
+.interval20 {
+  grid-column: span 4 / span 4;
+}
+
+.interval25 {
+  grid-column: span 5 / span 5;
+}
+
+.interval30 {
+  grid-column: span 6 / span 6;
+}
+
+.timeStart75 {
+  grid-column-start: 2;
+}
+
+.timeStart80 {
+  grid-column-start: 3;
+}
+
+.timeStart85 {
+  grid-column-start: 4;
+}
+
+.timeStart90 {
+  grid-column-start: 5;
+}
+
+.timeStart95 {
+  grid-column-start: 6;
+}
+
+.timeStart100 {
+  grid-column-start: 7;
+}
+
+.timeStart105 {
+  grid-column-start: 8;
+}
+
+.timeStart110 {
+  grid-column-start: 9;
+}
+
+.timeStart115 {
+  grid-column-start: 10;
+}
+
+.timeStart120 {
+  grid-column-start: 11;
+}
+
+.timeStart125 {
+  grid-column-start: 12;
+}
+
+.timeStart130 {
+  grid-column-start: 13;
+}
+
+.timeStart135 {
+  grid-column-start: 14;
+}
+
+.timeStart140 {
+  grid-column-start: 15;
+}
+
+.timeStart145 {
+  grid-column-start: 16;
+}
+
+.timeStart150 {
+  grid-column-start: 17;
+}
+
+.timeStart155 {
+  grid-column-start: 18;
+}
+
+.timeStart160 {
+  grid-column-start: 19;
+}
+
+.timeStart165 {
+  grid-column-start: 20;
+}

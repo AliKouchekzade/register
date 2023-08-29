@@ -1,3 +1,5 @@
+import hasOverLap from "./overlap";
+
 export function printCombination(selectedCourse, r) {
   const arr = selectedCourse.sort((a, b) => a.No - b.No);
   let all = JSON.stringify([]);
@@ -15,12 +17,12 @@ export function printCombination(selectedCourse, r) {
 
     if (arr[i].No !== (data[index - 1] || {}).No) {
       data[index] = arr[i];
-      combinationUtil(arr, n, r, index + 1, data, i + 1, all);
+      combinationUtil(arr, n, r, index + 1, data, i + 1);
     }
 
     combinationUtil(arr, n, r, index, data, i + 1);
   }
 
   combinationUtil(arr, n, r, 0, data, 0);
-  return JSON.parse(all);
+  return JSON.parse(all).filter((plan) => !hasOverLap(plan));
 }
