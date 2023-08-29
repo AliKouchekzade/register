@@ -60,8 +60,27 @@ input[type="checkbox"]:hover {
 }
 
 #plan {
-  grid-template-columns: 70px repeat(21, 30px);
+  grid-template-columns: 70px repeat(21, 24px);
   grid-template-rows: 40px repeat(6, 56px);
+}
+
+@media screen and (min-width:1280px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 30px);
+  }
+}
+
+@media screen and (min-width:1440px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 33px);
+  }
+}
+
+
+@media screen and (min-width:1536px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 40px);
+  }
 }
 
 .day0 {

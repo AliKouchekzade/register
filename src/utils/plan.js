@@ -1,6 +1,6 @@
 import hasOverLap from "./overlap";
 
-export function printCombination(selectedCourse, r) {
+export function getplans(selectedCourse, r) {
   const arr = selectedCourse.sort((a, b) => a.No - b.No);
   let all = JSON.stringify([]);
   let n = arr.length;
@@ -24,5 +24,7 @@ export function printCombination(selectedCourse, r) {
   }
 
   combinationUtil(arr, n, r, 0, data, 0);
-  return JSON.parse(all).filter((plan) => !hasOverLap(plan));
+  let x = JSON.parse(all).filter((plan) => !hasOverLap(plan));
+  if (JSON.stringify(x) === "[[]]") x = [];
+  return x;
 }

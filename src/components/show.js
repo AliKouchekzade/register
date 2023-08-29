@@ -33,6 +33,7 @@ const Show = ({ res }) => {
 
   return (
     <section className="hidden lg:flex lg:min-h-[400px] border flex-grow rounded flex-col p-4">
+      <p className="text-center text-sm mb-2">{res.length} برنامه وجود دارد</p>
       {res.map((plan) => (
         <div
           id="plan"

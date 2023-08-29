@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Courses from "./components/courses";
-import { printCombination } from "./utils/plan";
+import { getplans } from "./utils/plan";
 import Show from "./components/show";
 
 function App() {
   const [res, setRes] = useState([]);
 
   const filterHandler = (selectedCourse, r) => {
-    setRes(printCombination(selectedCourse, r));
+    setRes(getplans(selectedCourse, r));
   };
 
   return (
