@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { showCourses } from "../utils/showCourses";
 import { AiOutlineDown, AiOutlineLeft } from "react-icons/ai";
 import Collapsible from "react-collapsible";
@@ -6,8 +6,7 @@ import Collapsible from "react-collapsible";
 const Courses = ({ filterHandler }) => {
   const [courses, setCourses] = useState([]);
 
-  const selectedCourse = [];
-  const numOfCourse = [];
+  const [selectedCourse, setSelectedCourse] = useState([]);
 
   useEffect(() => {
     setCourses(showCourses());
@@ -35,10 +34,13 @@ const Courses = ({ filterHandler }) => {
               {course.lists.map((list, index) => (
                 <div key={list.ID} className="flex gap-x-3 items-center">
                   <input
+                    checked={selectedCourse.includes(list)}
                     onChange={() => {
                       selectedCourse.includes(list)
-                        ? selectedCourse.splice(selectedCourse.indexOf(list), 1)
-                        : selectedCourse.push(list);
+                        ? setSelectedCourse(
+                            selectedCourse.filter((sel) => sel.ID !== list.ID)
+                          )
+                        : setSelectedCourse([...selectedCourse, list]);
 
                       console.log(selectedCourse);
                     }}
