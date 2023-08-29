@@ -1,7 +1,6 @@
 import { data } from "../data/data";
 
-export function select() {
-  console.time("s");
+export function showCourses() {
   const courses = [];
   for (let x of data) {
     if ((courses.slice(-1)[0] || {}).No === x.No) {

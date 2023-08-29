@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import { select } from "../utils/select";
+import { showCourses } from "../utils/showCourses";
 import { AiOutlineDown, AiOutlineLeft } from "react-icons/ai";
 import Collapsible from "react-collapsible";
 
-const Courses = () => {
-  const [selectState, setSelct] = useState([]);
+const Courses = ({ filterHandler }) => {
+  const [courses, setCourses] = useState([]);
+
+  const selectedCourse = [];
+  const numOfCourse = [];
 
   useEffect(() => {
-    setSelct(select());
+    setCourses(showCourses());
   }, []);
 
   return (
@@ -19,9 +22,10 @@ const Courses = () => {
       <h1 className="text-right text-2xl mb-3">
         دروس ارائه شده<span className="text-xs"> (مهندسی برق)</span>
       </h1>
-      <div id="coursesDiv" className="overflow-y-auto">
-        {selectState.map((course) => (
+      <div id="coursesDiv" className="overflow-y-auto pr-1">
+        {courses.map((course) => (
           <Collapsible
+            key={course.No}
             transitionTime={400}
             trigger={<Trigger name={course.name} open={false} />}
             triggerWhenOpen={<Trigger name={course.name} open={true} />}
@@ -29,8 +33,19 @@ const Courses = () => {
           >
             <div dir="rtl">
               {course.lists.map((list, index) => (
-                <div className="flex gap-x-3 items-center">
-                  <input className="w-4 h-4" type="checkbox" id={list.ID} />
+                <div key={list.ID} className="flex gap-x-3 items-center">
+                  <input
+                    onChange={() => {
+                      selectedCourse.includes(list)
+                        ? selectedCourse.splice(selectedCourse.indexOf(list), 1)
+                        : selectedCourse.push(list);
+
+                      console.log(selectedCourse);
+                    }}
+                    className="w-4 h-4"
+                    type="checkbox"
+                    id={list.ID}
+                  />
                   <label
                     className={` ${
                       index ? "border-t" : ""
@@ -45,7 +60,20 @@ const Courses = () => {
           </Collapsible>
         ))}
       </div>
-      <button className="mt-3 bg-red-500 w-full rounded py-1.5 text-white">فیلتر</button>
+      <button
+        onClick={() =>
+          filterHandler(
+            selectedCourse,
+            selectedCourse
+              .map((c) => c.No)
+              .filter((val, index, array) => array.indexOf(val) === index)
+              .length
+          )
+        }
+        className="mt-3 bg-red-500 w-full rounded py-1.5 text-white"
+      >
+        فیلتر
+      </button>
     </section>
   );
 };
