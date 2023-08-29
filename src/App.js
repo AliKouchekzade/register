@@ -4,10 +4,16 @@ import { getplans } from "./utils/plan";
 import Show from "./components/show";
 
 function App() {
-  const [res, setRes] = useState([]);
+  const [res, setRes] = useState({ pending: false, data: [] });
 
   const filterHandler = (selectedCourse, r) => {
-    setRes(getplans(selectedCourse, r));
+    setRes({ pending: true, data: [] });
+    async function get() {
+      const response = await getplans(selectedCourse, r);
+      console.log(response);
+      setRes({ pending: false, data: response });
+    }
+    get();
   };
 
   return (

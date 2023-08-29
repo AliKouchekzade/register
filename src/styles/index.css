@@ -51,6 +51,11 @@ body {
   max-height: calc(100vh - 200px);
 }
 
+.coursesDiv {
+  height: calc(100vh - 200px);
+}
+
+
 input[type="checkbox"] {
   accent-color: rgb(13, 154, 13);
 }

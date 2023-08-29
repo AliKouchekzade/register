@@ -1,3 +1,6 @@
+import { BallTriangle } from "react-loader-spinner";
+import { data } from "../data/data";
+
 const Show = ({ res }) => {
   const number = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
 
@@ -35,32 +38,52 @@ const Show = ({ res }) => {
 
   return (
     <section className="hidden lg:flex lg:min-h-[400px] border flex-grow rounded flex-col p-4">
-      <p className="text-center text-sm mb-2">{res.length} برنامه وجود دارد</p>
-      {res.map((plan) => (
+      <p className="text-center text-sm mb-2">
+        {res.data.length} برنامه وجود دارد
+      </p>
+      {res.pending ? (
         <div
-          id="plan"
-          key={Math.random()}
-          className="border w-min m-auto rounded mb-10 grid"
+          className="flex justify-center items-center coursesDiv"
+          id="coursesDiv"
         >
-          {render()}
-          {plan.map((course) => {
-            return course.days.map((day, index) => (
-              <div
-                className={`day${day} timeStart${
-                  course.time[index].start * 10
-                } interval${
-                  (course.time[index].end - course.time[index].start) * 10
-                } bg-red-100 m-0.5 text-[10px] flex flex-col justify-evenly rounded-md items-center text-center overflow-hidden`}
-              >
-                <p>
-                  {course.name}-{number[course.GNo]}
-                </p>
-                <p>{course.professor}</p>
-              </div>
-            ));
-          })}
+          <BallTriangle
+            height={50}
+            width={50}
+            radius={5}
+            color="#4fa94d"
+            ariaLabel="ball-triangle-loading"
+            wrapperClass={{}}
+            wrapperStyle=""
+            visible={true}
+          />
         </div>
-      ))}
+      ) : (
+        res.data.map((plan) => (
+          <div
+            id="plan"
+            key={Math.random()}
+            className="border w-min m-auto rounded mb-10 grid"
+          >
+            {render()}
+            {plan.map((course) => {
+              return course.days.map((day, index) => (
+                <div
+                  className={`day${day} timeStart${
+                    course.time[index].start * 10
+                  } interval${
+                    (course.time[index].end - course.time[index].start) * 10
+                  } bg-red-100 m-0.5 text-[10px] flex flex-col justify-evenly rounded-md items-center text-center overflow-hidden`}
+                >
+                  <p>
+                    {course.name}-{number[course.GNo]}
+                  </p>
+                  <p>{course.professor}</p>
+                </div>
+              ));
+            })}
+          </div>
+        ))
+      )}
     </section>
   );
 };

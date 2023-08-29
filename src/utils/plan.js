@@ -1,6 +1,10 @@
 import hasOverLap from "./overlap";
 
-export function getplans(selectedCourse, r) {
+function wait(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+export async function getplans(selectedCourse, r) {
   const arr = selectedCourse.sort((a, b) => a.No - b.No);
   let all = JSON.stringify([]);
   let n = arr.length;
@@ -26,5 +30,8 @@ export function getplans(selectedCourse, r) {
   combinationUtil(arr, n, r, 0, data, 0);
   let x = JSON.parse(all).filter((plan) => !hasOverLap(plan));
   if (JSON.stringify(x) === "[[]]") x = [];
+
+  await wait(1000);
+
   return x;
 }
