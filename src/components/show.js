@@ -1,5 +1,3 @@
-import hasOverLap from "../utils/overlap";
-
 const Show = ({ res }) => {
   const render = () => {
     const days = [
@@ -23,14 +21,18 @@ const Show = ({ res }) => {
     }
 
     for (let i = 0; i < 7; i++) {
-      time.push(<p className="border col-start-1">{days[i]}</p>);
+      time.push(
+        <div className="border col-start-1 flex justify-center items-center">
+          <p className="text-center">{days[i]}</p>
+        </div>
+      );
     }
 
     return time;
   };
 
   return (
-    <section className="min-h-[400px] border flex-grow rounded flex flex-col p-4">
+    <section className="hidden lg:flex lg:min-h-[400px] border flex-grow rounded flex-col p-4">
       {res.map((plan) => (
         <div
           id="plan"

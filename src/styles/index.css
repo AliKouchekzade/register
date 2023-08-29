@@ -61,7 +61,7 @@ input[type="checkbox"]:hover {
 
 #plan {
   grid-template-columns: 70px repeat(21, 30px);
-  grid-template-rows: repeat(8, 56px);
+  grid-template-rows: 40px repeat(6, 56px);
 }
 
 .day0 {

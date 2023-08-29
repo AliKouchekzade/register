@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { showCourses } from "../utils/showCourses";
 import { AiOutlineDown, AiOutlineLeft } from "react-icons/ai";
 import Collapsible from "react-collapsible";
@@ -16,7 +16,7 @@ const Courses = ({ filterHandler }) => {
     <section
       dir="ltr"
       id="courses"
-      className={`sticky top-10 basis-1/3  border rounded border-[#CBCBCB] p-4 text-[#353535]`}
+      className={`hidden lg:block sticky top-10 basis-1/3  border rounded border-[#CBCBCB] p-4 text-[#353535]`}
     >
       <h1 className="text-right text-2xl mb-3">
         دروس ارائه شده<span className="text-xs"> (مهندسی برق)</span>
