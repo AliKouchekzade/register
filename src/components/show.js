@@ -91,7 +91,7 @@ const Show = ({ res }) => {
                         course.time[index].start * 10
                       } interval${
                         (course.time[index].end - course.time[index].start) * 10
-                      } bg-cyan-100 shadow-md text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
+                      } bg-rose-100 shadow-md text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
                     >
                       <p>
                         {course.name}-{number[course.GNo]}

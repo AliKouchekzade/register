@@ -125,7 +125,7 @@ const Courses = ({ filterHandler }) => {
               .length
           )
         }
-        className="mt-3 bg-cyan-600 w-full rounded py-1.5 text-white"
+        className="mt-3 bg-red-500 w-full rounded py-1.5 text-white"
       >
         فیلتر
       </button>
@@ -142,7 +142,7 @@ const Trigger = ({ name, open, checked }) => {
         {!open ? <AiOutlineLeft /> : <AiOutlineDown />}
         <div className="flex gap-x-2 items-center">
           {checked.length ? (
-            <span className="w-2 h-2 rounded-full bg-cyan-300"></span>
+            <span className="w-2 h-2 rounded-full bg-red-300"></span>
           ) : (
             ""
           )}
