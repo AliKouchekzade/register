@@ -40,7 +40,10 @@ const Courses = ({ filterHandler }) => {
         </h1>
       </div>
       {courses.pending ? (
-        <div className="flex justify-center items-center coursesDiv" id="coursesDiv">
+        <div
+          className="flex justify-center items-center coursesDiv"
+          id="coursesDiv"
+        >
           <BallTriangle
             height={50}
             width={50}
@@ -60,8 +63,20 @@ const Courses = ({ filterHandler }) => {
               <Collapsible
                 key={course.No}
                 transitionTime={400}
-                trigger={<Trigger name={course.name} open={false} />}
-                triggerWhenOpen={<Trigger name={course.name} open={true} />}
+                trigger={
+                  <Trigger
+                    name={course.name}
+                    open={false}
+                    checked={selectedCourse.filter((s) => s.No === course.No)}
+                  />
+                }
+                triggerWhenOpen={
+                  <Trigger
+                    name={course.name}
+                    open={true}
+                    checked={selectedCourse.filter((s) => s.No === course.No)}
+                  />
+                }
                 easing={"cubic-bezier(0.175, 0.85, 0.32, 1.5)"}
               >
                 <div dir="rtl">
@@ -110,7 +125,7 @@ const Courses = ({ filterHandler }) => {
               .length
           )
         }
-        className="mt-3 bg-red-500 w-full rounded py-1.5 text-white"
+        className="mt-3 bg-cyan-500 w-full rounded py-1.5 text-white"
       >
         فیلتر
       </button>
@@ -120,11 +135,23 @@ const Courses = ({ filterHandler }) => {
 
 export default Courses;
 
-const Trigger = ({ name, open }) => {
+const Trigger = ({ name, open, checked }) => {
   return (
-    <p className="text-right flex justify-between items-center">
-      {!open ? <AiOutlineLeft /> : <AiOutlineDown />}
-      <span>{name}</span>
-    </p>
+    <div>
+      <p className="text-right flex justify-between items-center">
+        {!open ? <AiOutlineLeft /> : <AiOutlineDown />}
+        <div className="flex gap-x-2 items-center">
+          {checked.length ? (
+            <span className="w-2 h-2 rounded-full bg-cyan-200"></span>
+          ) : (
+            ""
+          )}
+          <span>{name}</span>
+        </div>
+      </p>
+      <div className="text-xs text-right pr-2 text-[#717171]">
+        {!open ? checked.map((c) => <p className="mt-1">{c.professor}</p>) : ""}
+      </div>
+    </div>
   );
 };
