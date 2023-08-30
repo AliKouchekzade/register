@@ -55,7 +55,6 @@ body {
   height: calc(100vh - 200px);
 }
 
-
 input[type="checkbox"] {
   accent-color: rgb(13, 154, 13);
 }
@@ -66,26 +65,29 @@ input[type="checkbox"]:hover {
 
 #plan {
   grid-template-columns: 70px repeat(21, 24px);
-  grid-template-rows: 40px repeat(6, 56px);
+  grid-template-rows: 0px repeat(6, 56px);
 }
 
-@media screen and (min-width:1280px) {
+@media screen and (min-width: 1280px) {
   #plan {
     grid-template-columns: 70px repeat(21, 30px);
   }
 }
 
-@media screen and (min-width:1440px) {
+@media screen and (min-width: 1440px) {
   #plan {
     grid-template-columns: 70px repeat(21, 33px);
   }
 }
 
-
-@media screen and (min-width:1536px) {
+@media screen and (min-width: 1536px) {
   #plan {
     grid-template-columns: 70px repeat(21, 40px);
   }
+}
+
+.day-1 {
+  grid-row-start: 1;
 }
 
 .day0 {
@@ -134,6 +136,7 @@ input[type="checkbox"]:hover {
 
 .timeStart75 {
   grid-column-start: 2;
+  border-right: 1px solid #cbcbcb;
 }
 
 .timeStart80 {
@@ -146,6 +149,7 @@ input[type="checkbox"]:hover {
 
 .timeStart90 {
   grid-column-start: 5;
+  border-right: 1px solid #cbcbcb;
 }
 
 .timeStart95 {
@@ -158,6 +162,7 @@ input[type="checkbox"]:hover {
 
 .timeStart105 {
   grid-column-start: 8;
+  border-right: 1px solid #cbcbcb;
 }
 
 .timeStart110 {
@@ -170,6 +175,7 @@ input[type="checkbox"]:hover {
 
 .timeStart120 {
   grid-column-start: 11;
+  border-right: 1px solid #cbcbcb;
 }
 
 .timeStart125 {
@@ -182,6 +188,7 @@ input[type="checkbox"]:hover {
 
 .timeStart135 {
   grid-column-start: 14;
+  border-right: 1px solid #cbcbcb;
 }
 
 .timeStart140 {
@@ -194,6 +201,7 @@ input[type="checkbox"]:hover {
 
 .timeStart150 {
   grid-column-start: 17;
+  border-right: 1px solid #cbcbcb;
 }
 
 .timeStart155 {
@@ -206,4 +214,5 @@ input[type="checkbox"]:hover {
 
 .timeStart165 {
   grid-column-start: 20;
+  border-right: 1px solid #cbcbcb;
 }
