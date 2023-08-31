@@ -32,7 +32,7 @@ const Courses = ({ filterHandler }) => {
             dir="rtl"
             placeholder="جستجو..."
             style={{ border: "1px solid #CBCBCB" }}
-            className="rounded flex-grow w-full  outline-1 outline-[#CBCBCB] p-1"
+            className="rounded flex-grow w-full text-sm md:text-base outline-1 outline-[#CBCBCB] p-1"
           />
         </form>
         <h1 className="text-right md:text-xs lg:text-base xl:text-xl  whitespace-nowrap">
@@ -92,8 +92,6 @@ const Courses = ({ filterHandler }) => {
                                 )
                               )
                             : setSelectedCourse([...selectedCourse, list]);
-
-                          console.log(selectedCourse);
                         }}
                         className="w-4 h-4"
                         type="checkbox"
@@ -102,7 +100,7 @@ const Courses = ({ filterHandler }) => {
                       <label
                         className={` ${
                           index ? "border-t" : ""
-                        } border-[#CBCBCB] py-3 flex-grow text-sm`}
+                        } border-[#CBCBCB] py-3 flex-grow text-[10px] md:text-sm`}
                         htmlFor={list.ID}
                       >
                         {list.professor}
