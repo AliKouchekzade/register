@@ -64,7 +64,8 @@ const Show = ({ res, firstLoad }) => {
           firstLoad && !res.pending ? "" : "invisible"
         }`}
       >
-        دروس و اساتید مورد نظر را انتخاب کنید تا تمامی برنامه های بدون تداخل را ببینید
+        دروس و اساتید مورد نظر را انتخاب کنید تا تمامی برنامه های بدون تداخل را
+        ببینید
       </p>
       {res.pending ? (
         <div
@@ -130,6 +131,7 @@ const Show = ({ res, firstLoad }) => {
           )}
         </>
       )}
+      <p className="absolute left-0 text-[8px] -bottom-4">AUG 2023 Ali Kouchakzade</p>
     </section>
   );
 };
