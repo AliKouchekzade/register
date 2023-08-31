@@ -81,7 +81,7 @@ const Courses = ({ filterHandler }) => {
               >
                 <div dir="rtl">
                   {course.lists.map((list, index) => (
-                    <div key={list.ID} className="flex gap-x-3 items-center">
+                    <div key={list.ID} className="flex gap-x-2 md:gap-x-3 items-center">
                       <input
                         checked={selectedCourse.includes(list)}
                         onChange={() => {
@@ -100,10 +100,11 @@ const Courses = ({ filterHandler }) => {
                       <label
                         className={` ${
                           index ? "border-t" : ""
-                        } border-[#CBCBCB] py-3 flex-grow text-[10px] md:text-sm`}
+                        } border-[#CBCBCB] py-3 flex-grow text-[10px] md:text-sm flex items-center gap-x-1`}
                         htmlFor={list.ID}
                       >
                         {list.professor}
+                        <span className="text-[7px] md:text-[10px]">({list.days2})</span>
                       </label>
                     </div>
                   ))}

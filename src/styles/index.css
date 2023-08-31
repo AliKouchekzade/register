@@ -49,10 +49,12 @@ body {
 
 #coursesDiv {
   height: calc(100vh - 500px);
+  max-height: 900px;
 }
 
 .coursesDiv {
   height: calc(100vh - 500px);
+  max-height: 900px;
 }
 
 input[type="checkbox"] {
@@ -96,7 +98,6 @@ input[type="checkbox"]:hover {
   }
 }
 
-
 @media screen and (min-width: 600px) {
   #plan {
     grid-template-columns: 70px repeat(21, 22px);
@@ -104,15 +105,12 @@ input[type="checkbox"]:hover {
   }
 }
 
-
-
 @media screen and (min-width: 650px) {
   #plan {
     grid-template-columns: 70px repeat(21, 24px);
     grid-template-rows: 0px repeat(6, 40px);
   }
 }
-
 
 @media screen and (min-width: 700px) {
   #plan {
@@ -129,14 +127,14 @@ input[type="checkbox"]:hover {
   .courses {
     max-height: calc(100vh - 80px);
   }
-  
+
   #coursesDiv {
     height: calc(100vh - 210px);
   }
-  
+
   .coursesDiv {
     height: calc(100vh - 210px);
-  }  
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -145,7 +143,6 @@ input[type="checkbox"]:hover {
     grid-template-rows: 0px repeat(6, 56px);
   }
 }
-
 
 @media screen and (min-width: 900px) {
   #plan {
