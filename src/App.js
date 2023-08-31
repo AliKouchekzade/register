@@ -17,7 +17,7 @@ function App() {
   };
 
   return (
-    <main className="flex flex-col md:flex-row gap-x-8 p-4 lg:p-10 cnt m-auto">
+    <main className="flex flex-col md:flex-row gap-8 p-4 lg:p-10 cnt m-auto">
       <Courses filterHandler={filterHandler} />
       <Show res={res} />
     </main>

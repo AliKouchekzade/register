@@ -24,18 +24,18 @@ const Courses = ({ filterHandler }) => {
       dir="ltr"
       className={`courses lg:block md:sticky top-10 basis-1/3  border rounded border-[#CBCBCB] p-4 text-[#353535]`}
     >
-      <div className="flex items-center justify-between mb-3">
-        <form>
+      <div className="flex items-center gap-x-5 justify-between mb-3">
+        <form className="flex-grow">
           <input
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             dir="rtl"
             placeholder="جستجو..."
             style={{ border: "1px solid #CBCBCB" }}
-            className="rounded flex-grow w-24 lg:w-40 outline-1 outline-[#CBCBCB] p-1"
+            className="rounded flex-grow w-full  outline-1 outline-[#CBCBCB] p-1"
           />
         </form>
-        <h1 className="text-right xl:text-xl text-sm whitespace-nowrap text-clip basis-52">
+        <h1 className="text-right md:text-xs lg:text-base xl:text-xl  whitespace-nowrap">
           دروس ارائه شده<span className="text-[8px]"> (مهندسی برق)</span>
         </h1>
       </div>

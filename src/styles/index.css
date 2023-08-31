@@ -44,15 +44,15 @@ body {
 }
 
 .courses {
-  max-height: calc(100vh - 270px);
+  max-height: calc(100vh - 370px);
 }
 
 #coursesDiv {
-  height: calc(100vh - 400px);
+  height: calc(100vh - 500px);
 }
 
 .coursesDiv {
-  height: calc(100vh - 400px);
+  height: calc(100vh - 500px);
 }
 
 input[type="checkbox"] {
