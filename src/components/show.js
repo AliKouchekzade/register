@@ -58,9 +58,9 @@ const Show = ({ res, firstLoad }) => {
   };
 
   return (
-    <section className="lg:flex relative lg:min-h-[400px] border flex-grow rounded flex-col p-4">
+    <section className="lg:flex relative min-h-[100px] border flex-grow rounded flex-col p-4">
       <p
-        className={`absolute top-4 left-1/2 text-[10px] md:text-sm -ml-40 md:-ml-56 ${
+        className={`left-0 absolute top-10 text-center text-[10px] md:text-sm w-full ${
           firstLoad && !res.pending ? "" : "invisible"
         }`}
       >
@@ -131,7 +131,9 @@ const Show = ({ res, firstLoad }) => {
           )}
         </>
       )}
-      <p className="absolute left-0 text-[8px] -bottom-4">AUG 2023 Ali Kouchakzade</p>
+      <p className="absolute left-0 opacity-30 text-[8px] -bottom-4">
+        AUG 2023 Ali Kouchakzade
+      </p>
     </section>
   );
 };
