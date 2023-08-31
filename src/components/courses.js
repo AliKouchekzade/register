@@ -3,6 +3,7 @@ import { showCourses } from "../utils/showCourses";
 import { AiOutlineDown, AiOutlineLeft } from "react-icons/ai";
 import Collapsible from "react-collapsible";
 import { BallTriangle } from "react-loader-spinner";
+import { data } from "../data/data";
 
 const Courses = ({ filterHandler }) => {
   const [courses, setCourses] = useState({ pending: true, data: [] });
@@ -17,7 +18,18 @@ const Courses = ({ filterHandler }) => {
       setCourses({ pending: false, data: response });
     }
     getCourse();
+    try {
+      setSelectedCourse(
+        JSON.parse(localStorage.getItem("course") || []).map((id) =>
+          getCourseByID(id)
+        ) || []
+      );
+    } catch (error) {}
   }, []);
+
+  function getCourseByID(id) {
+    return data.find((d) => d.ID === id);
+  }
 
   return (
     <section
@@ -81,17 +93,35 @@ const Courses = ({ filterHandler }) => {
               >
                 <div dir="rtl">
                   {course.lists.map((list, index) => (
-                    <div key={list.ID} className="flex gap-x-2 md:gap-x-3 items-center">
+                    <div
+                      key={list.ID}
+                      className="flex gap-x-2 md:gap-x-3 items-center"
+                    >
                       <input
                         checked={selectedCourse.includes(list)}
                         onChange={() => {
-                          selectedCourse.includes(list)
-                            ? setSelectedCourse(
-                                selectedCourse.filter(
-                                  (sel) => sel.ID !== list.ID
-                                )
+                          if (selectedCourse.includes(list)) {
+                            setSelectedCourse(
+                              selectedCourse.filter((sel) => sel.ID !== list.ID)
+                            );
+                            localStorage.setItem(
+                              "course",
+                              JSON.stringify(
+                                selectedCourse
+                                  .filter((sel) => sel.ID !== list.ID)
+                                  .map((c) => c.ID)
                               )
-                            : setSelectedCourse([...selectedCourse, list]);
+                            );
+                          } else {
+                            setSelectedCourse([...selectedCourse, list]);
+                            localStorage.setItem(
+                              "course",
+                              JSON.stringify([
+                                ...selectedCourse.map((c) => c.ID),
+                                list.ID,
+                              ])
+                            );
+                          }
                         }}
                         className="w-4 h-4"
                         type="checkbox"
@@ -104,7 +134,9 @@ const Courses = ({ filterHandler }) => {
                         htmlFor={list.ID}
                       >
                         {list.professor}
-                        <span className="text-[7px] md:text-[10px]">({list.days2})</span>
+                        <span className="text-[7px] md:text-[10px]">
+                          ({list.days2})
+                        </span>
                       </label>
                     </div>
                   ))}
