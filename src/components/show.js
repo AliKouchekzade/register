@@ -1,6 +1,6 @@
 import { BallTriangle } from "react-loader-spinner";
 
-const Show = ({ res }) => {
+const Show = ({ res, firstLoad }) => {
   const number = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
 
   const render = () => {
@@ -15,7 +15,9 @@ const Show = ({ res }) => {
 
     let time = [
       <div className="border text-left text-xs md:text-sm relative">
-        <span className="absolute -top-4 md:-top-5 translate-x-1/2">{+7.5}</span>
+        <span className="absolute -top-4 md:-top-5 translate-x-1/2">
+          {+7.5}
+        </span>
       </div>,
     ];
     for (let i = 1; i < 8; i++) {
@@ -45,7 +47,9 @@ const Show = ({ res }) => {
         <div
           className={`border col-start-1 flex justify-center items-center day${i}`}
         >
-          <p className="text-center text-xs  min-[410px]:text-[14px] md:text-base">{days[i]}</p>
+          <p className="text-center text-xs  min-[410px]:text-[14px] md:text-base">
+            {days[i]}
+          </p>
         </div>
       );
     }
@@ -54,7 +58,14 @@ const Show = ({ res }) => {
   };
 
   return (
-    <section className="lg:flex lg:min-h-[400px] border flex-grow rounded flex-col p-4">
+    <section className="lg:flex relative lg:min-h-[400px] border flex-grow rounded flex-col p-4">
+      <p
+        className={`absolute top-4 left-1/2 text-[10px] md:text-sm -ml-40 md:-ml-56 ${
+          firstLoad && !res.pending ? "" : "invisible"
+        }`}
+      >
+        دروس و اساتید مورد نظر را انتخاب کنید تا تمامی برنامه های بدون تداخل را ببینید
+      </p>
       {res.pending ? (
         <div
           className="flex justify-center items-center coursesDiv"
@@ -72,38 +83,52 @@ const Show = ({ res }) => {
           />
         </div>
       ) : (
-        <div>
-          <p className={`text-center text-sm mb-8`}>
-            {res.data.length} برنامه وجود دارد
-          </p>
-          {res.data.map((plan) => (
-            <div
-              id="plan"
-              key={Math.random()}
-              className="border w-min m-auto rounded mb-14 grid"
-            >
-              {render()}
-              {plan.map((course) => {
-                return course.days.map((day, index) => {
-                  return (
-                    <div
-                      className={`day${day} timeStart${
-                        course.time[index].start * 10
-                      } interval${
-                        (course.time[index].end - course.time[index].start) * 10
-                      } bg-rose-100 shadow-md text-[6px] min-[410px]:text-[6.5px] min-[500px]:text-[7px] min-[600px]:text-[8px] md:text-[8px] lg:text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
-                    >
-                      <p>
-                        {course.name}-{number[course.GNo]}
-                      </p>
-                      <p>{course.professor}</p>
-                    </div>
-                  );
-                });
-              })}
+        <>
+          {res.data.length ? (
+            <div>
+              <p className={`text-center text-sm mb-8`}>
+                {res.data.length} برنامه وجود دارد
+              </p>
+              {res.data.map((plan) => (
+                <div
+                  id="plan"
+                  key={Math.random()}
+                  className="border w-min m-auto rounded mb-14 grid"
+                >
+                  {render()}
+                  {plan.map((course) => {
+                    return course.days.map((day, index) => {
+                      return (
+                        <div
+                          className={`day${day} timeStart${
+                            course.time[index].start * 10
+                          } interval${
+                            (course.time[index].end -
+                              course.time[index].start) *
+                            10
+                          } bg-rose-100 shadow-md text-[6px] min-[410px]:text-[6.5px] min-[500px]:text-[7px] min-[600px]:text-[8px] md:text-[8px] lg:text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
+                        >
+                          <p>
+                            {course.name}-{number[course.GNo]}
+                          </p>
+                          <p>{course.professor}</p>
+                        </div>
+                      );
+                    });
+                  })}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          ) : (
+            <p
+              className={`text-center text-sm mb-8 ${
+                firstLoad ? "hidden" : ""
+              }`}
+            >
+              هیچ برنامه بدون تداخلی برای دروس و اساتید انتخابی یافت نشد
+            </p>
+          )}
+        </>
       )}
     </section>
   );
