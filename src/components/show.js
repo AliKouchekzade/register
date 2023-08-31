@@ -14,14 +14,14 @@ const Show = ({ res }) => {
     ];
 
     let time = [
-      <div className="border text-left text-sm relative">
-        <span className="absolute -top-5 translate-x-1/2">{+7.5}</span>
+      <div className="border text-left text-xs md:text-sm relative">
+        <span className="absolute -top-4 md:-top-5 translate-x-1/2">{+7.5}</span>
       </div>,
     ];
     for (let i = 1; i < 8; i++) {
       time.push(
-        <div className="border col-span-3 text-left text-sm relative">
-          <span className="absolute -top-5 translate-x-1/2">
+        <div className="border col-span-3 text-left text-xs md:text-sm relative">
+          <span className="absolute -top-4 md:-top-5 translate-x-1/2">
             {i * 1.5 + 7.5}
           </span>
         </div>
@@ -31,7 +31,7 @@ const Show = ({ res }) => {
     for (let i = 0; i < 126; i++) {
       time.push(
         <div
-          className={`border-y border-y-[#f9f9f9]  text-left text-sm relative ${
+          className={`border-y border-y-[#f9f9f9]  text-left relative ${
             i % 3 === 0
               ? " border-r border-x-[#CBCBCB]"
               : "border-r border-x-[#f9f9f9]"
@@ -45,7 +45,7 @@ const Show = ({ res }) => {
         <div
           className={`border col-start-1 flex justify-center items-center day${i}`}
         >
-          <p className="text-center">{days[i]}</p>
+          <p className="text-center text-xs  min-[410px]:text-[14px] md:text-base">{days[i]}</p>
         </div>
       );
     }
@@ -54,7 +54,7 @@ const Show = ({ res }) => {
   };
 
   return (
-    <section className="hidden lg:flex lg:min-h-[400px] border flex-grow rounded flex-col p-4">
+    <section className="lg:flex lg:min-h-[400px] border flex-grow rounded flex-col p-4">
       {res.pending ? (
         <div
           className="flex justify-center items-center coursesDiv"
@@ -91,7 +91,7 @@ const Show = ({ res }) => {
                         course.time[index].start * 10
                       } interval${
                         (course.time[index].end - course.time[index].start) * 10
-                      } bg-rose-100 shadow-md text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
+                      } bg-rose-100 shadow-md text-[6px] min-[410px]:text-[6.5px] min-[500px]:text-[7px] min-[600px]:text-[8px] md:text-[8px] lg:text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
                     >
                       <p>
                         {course.name}-{number[course.GNo]}

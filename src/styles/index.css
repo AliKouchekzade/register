@@ -44,15 +44,15 @@ body {
 }
 
 .courses {
-  max-height: calc(100vh - 80px);
+  max-height: calc(100vh - 270px);
 }
 
 #coursesDiv {
-  height: calc(100vh - 200px);
+  height: calc(100vh - 400px);
 }
 
 .coursesDiv {
-  height: calc(100vh - 200px);
+  height: calc(100vh - 400px);
 }
 
 input[type="checkbox"] {
@@ -64,25 +64,121 @@ input[type="checkbox"]:hover {
 }
 
 #plan {
-  grid-template-columns: 70px repeat(21, 24px);
-  grid-template-rows: 0px repeat(6, 56px);
+  grid-template-columns: 50px repeat(21, 13px);
+  grid-template-rows: 0px repeat(6, 28px);
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 410px) {
+  #plan {
+    grid-template-columns: 50px repeat(21, 14px);
+    grid-template-rows: 0px repeat(6, 34px);
+  }
+}
+
+@media screen and (min-width: 460px) {
+  #plan {
+    grid-template-columns: 50px repeat(21, 16.5px);
+    grid-template-rows: 0px repeat(6, 35px);
+  }
+}
+
+@media screen and (min-width: 500px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 17px);
+    grid-template-rows: 0px repeat(6, 37px);
+  }
+}
+
+@media screen and (min-width: 550px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 20px);
+    grid-template-rows: 0px repeat(6, 37px);
+  }
+}
+
+
+@media screen and (min-width: 600px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 22px);
+    grid-template-rows: 0px repeat(6, 39px);
+  }
+}
+
+
+
+@media screen and (min-width: 650px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 24px);
+    grid-template-rows: 0px repeat(6, 40px);
+  }
+}
+
+
+@media screen and (min-width: 700px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 26px);
+    grid-template-rows: 0px repeat(6, 40px);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 16px);
+    grid-template-rows: 0px repeat(6, 45px);
+  }
+  .courses {
+    max-height: calc(100vh - 80px);
+  }
+  
+  #coursesDiv {
+    height: calc(100vh - 210px);
+  }
+  
+  .coursesDiv {
+    height: calc(100vh - 210px);
+  }  
+}
+
+@media screen and (min-width: 900px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 20px);
+    grid-template-rows: 0px repeat(6, 56px);
+  }
+}
+
+
+@media screen and (min-width: 900px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 20px);
+    grid-template-rows: 0px repeat(6, 56px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #plan {
+    grid-template-columns: 70px repeat(21, 23px);
+    grid-template-rows: 0px repeat(6, 56px);
+  }
+}
+
+@media screen and (min-width: 1270px) {
   #plan {
     grid-template-columns: 70px repeat(21, 30px);
+    grid-template-rows: 0px repeat(6, 56px);
   }
 }
 
 @media screen and (min-width: 1440px) {
   #plan {
-    grid-template-columns: 70px repeat(21, 33px);
+    grid-template-columns: 70px repeat(21, 36px);
+    grid-template-rows: 0px repeat(6, 56px);
   }
 }
 
 @media screen and (min-width: 1536px) {
   #plan {
     grid-template-columns: 70px repeat(21, 40px);
+    grid-template-rows: 0px repeat(6, 56px);
   }
 }
 
@@ -215,4 +311,10 @@ input[type="checkbox"]:hover {
 .timeStart165 {
   grid-column-start: 20;
   border-right: 1px solid #cbcbcb;
+}
+
+@media screen and (min-width: 1536px) {
+  .cnt {
+    width: 1536px;
+  }
 }
