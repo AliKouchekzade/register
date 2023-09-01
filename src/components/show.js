@@ -107,7 +107,7 @@ const Show = ({ res, firstLoad }) => {
                             (course.time[index].end -
                               course.time[index].start) *
                             10
-                          } bg-rose-100 shadow-md text-[6px] min-[410px]:text-[6.5px] min-[500px]:text-[7px] min-[600px]:text-[8px] md:text-[8px] lg:text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
+                          } bg-rose-100 shadow-md text-[5.5px] min-[410px]:text-[6px] min-[500px]:text-[6.5px] min-[600px]:text-[7px] md:text-[8px] lg:text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
                         >
                           <p>
                             {course.name}-{number[course.GNo]}
@@ -131,7 +131,7 @@ const Show = ({ res, firstLoad }) => {
           )}
         </>
       )}
-      <p className="absolute left-0 opacity-30 text-[8px] -bottom-4">
+      <p className="absolute left-0 opacity-0 text-[8px] -bottom-4">
         AUG 2023 Ali Kouchakzade
       </p>
     </section>

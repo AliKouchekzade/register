@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { showCourses } from "../utils/showCourses";
 import { AiOutlineDown, AiOutlineLeft } from "react-icons/ai";
 import Collapsible from "react-collapsible";
@@ -11,6 +11,7 @@ const Courses = ({ filterHandler }) => {
   const [selectedCourse, setSelectedCourse] = useState([]);
 
   const [searchInput, setSearchInput] = useState("");
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     async function getCourse() {
@@ -40,7 +41,11 @@ const Courses = ({ filterHandler }) => {
         <form className="flex-grow">
           <input
             value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
+            onChange={(e) => {
+              startTransition(() => {
+                setSearchInput(e.target.value);
+              });
+            }}
             dir="rtl"
             placeholder="جستجو..."
             style={{ border: "1px solid #CBCBCB" }}
