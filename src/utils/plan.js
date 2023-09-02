@@ -45,7 +45,5 @@ export async function getplans(selectedCourse, selectedMaaref) {
     xMaaref.push(maarefPlan);
   }
 
-  console.log(xMaaref);
-
   return { course: x, maaref: xMaaref };
 }

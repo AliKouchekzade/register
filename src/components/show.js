@@ -1,7 +1,21 @@
+import { useEffect, useState } from "react";
 import { BallTriangle } from "react-loader-spinner";
+import { data } from "../data/data";
 
 const Show = ({ res, firstLoad }) => {
   const number = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+
+  const [maarefShow, setMaarefShow] = useState([]);
+
+  useEffect(() => {
+    const x = new Array(res.data.course.length);
+    x.fill("");
+    setMaarefShow(x);
+  }, [res]);
+
+  function getCourseByID(id) {
+    return data.find((d) => d.ID === id);
+  }
 
   const render = () => {
     const days = [
@@ -55,16 +69,41 @@ const Show = ({ res, firstLoad }) => {
     return time;
   };
 
+  function maarefShowFunc(index) {
+    const c = getCourseByID(Number(maarefShow[index]));
+    return (
+      <div
+        className={`z-20 day${c.days[0]} timeStart${
+          c.time[0].start * 10
+        } interval${
+          (c.time[0].end - c.time[0].start) * 10
+        } bg-cyan-100 shadow-md text-[5.5px] min-[410px]:text-[6px] min-[500px]:text-[6.5px] min-[600px]:text-[7px] md:text-[8px] lg:text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
+      >
+        <p>
+          {c.name}-{number[c.GNo]}
+        </p>
+        <p>{c.professor}</p>
+      </div>
+    );
+  }
+
   return (
     <section className="lg:flex relative min-h-[100px] border flex-grow rounded flex-col p-4">
-      <p
+      <div
         className={`left-0 absolute top-10 text-center text-[10px] md:text-sm w-full ${
           firstLoad && !res.pending ? "" : "invisible"
         }`}
       >
-        دروس و اساتید مورد نظر را انتخاب کنید تا تمامی برنامه های بدون تداخل را
-        ببینید
-      </p>
+        <p>
+          دروس و اساتید مورد نظر را انتخاب کنید تا تمامی برنامه های بدون تداخل
+          را ببینید
+        </p>
+        <p className="w-5/6 mt-5 m-auto">
+          برای دروس معارف برنامه جدید نمایش داده نمیشود. با انتخاب دروس معارف
+          برای برنامه های قبلی تمامی معارف های بدون تداخل از بین معارف های
+          انتخابی نمایش داده میشود
+        </p>
+      </div>
       {res.pending ? (
         <div
           className="flex justify-center items-center coursesDiv"
@@ -116,18 +155,25 @@ const Show = ({ res, firstLoad }) => {
                         );
                       });
                     })}
+                    {maarefShow[index] ? maarefShowFunc(index) : ""}
                   </div>
-                  <div className="mt-2 grid grid-cols-2 gap-2">
+                  <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-y-2.5">
                     {res.data.maaref[index].map((ma) => (
                       <div className="flex gap-x-1 items-center">
                         <input
+                          value={ma.ID}
                           name={index}
                           id={ma.ID / (index + 2)}
                           type="radio"
+                          onChange={(e) => {
+                            const copy = [...maarefShow];
+                            copy[index] = e.target.value;
+                            setMaarefShow(copy);
+                          }}
                         />
                         <label
                           htmlFor={ma.ID / (index + 2)}
-                          className="text-xs"
+                          className="text-[10px]"
                         >
                           {ma.name}
                           {"-"}
