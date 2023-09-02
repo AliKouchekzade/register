@@ -4,20 +4,33 @@ import { AiOutlineDown, AiOutlineLeft } from "react-icons/ai";
 import Collapsible from "react-collapsible";
 import { BallTriangle } from "react-loader-spinner";
 import { data } from "../data/data";
+import Select from "react-select";
 
 const Courses = ({ filterHandler }) => {
+  const options = [
+    { value: 25, label: "مهندسی برق" },
+    { value: 37, label: "مرکز معارف اسلامی و علوم انسانی" },
+    { value: 31, label: "مرکز زبان ها و زبان شناسی" },
+  ];
+
   const [courses, setCourses] = useState({ pending: true, data: [] });
 
   const [selectedCourse, setSelectedCourse] = useState([]);
+  const [selectedOption, setSelectedOption] = useState({
+    value: 25,
+    label: "مهندسی برق",
+  });
 
   const [searchInput, setSearchInput] = useState("");
   const [isPending, startTransition] = useTransition();
 
+  async function getCourse(department) {
+    setCourses({ pending: true, data: [] });
+    const response = await showCourses(department);
+    setCourses({ pending: false, data: response });
+  }
+
   useEffect(() => {
-    async function getCourse() {
-      const response = await showCourses();
-      setCourses({ pending: false, data: response });
-    }
     getCourse();
     try {
       setSelectedCourse(
@@ -49,12 +62,19 @@ const Courses = ({ filterHandler }) => {
             dir="rtl"
             placeholder="جستجو..."
             style={{ border: "1px solid #CBCBCB" }}
-            className="rounded flex-grow w-full text-sm md:text-base outline-1 outline-[#CBCBCB] p-1"
+            className="rounded flex-grow w-full text-sm md:text-base outline-1 outline-[#CBCBCB] py-1.5"
           />
         </form>
-        <h1 className="text-right md:text-xs lg:text-base xl:text-xl  whitespace-nowrap">
-          دروس ارائه شده<span className="text-[8px]"> (مهندسی برق)</span>
-        </h1>
+        <Select
+          className="basis-1/2 text-sm  border-[#CBCBCB]"
+          isSearchable
+          value={selectedOption}
+          onChange={(option) => {
+            setSelectedOption(option);
+            getCourse(option.value);
+          }}
+          options={options}
+        />
       </div>
       {courses.pending ? (
         <div
