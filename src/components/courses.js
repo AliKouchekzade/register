@@ -33,11 +33,17 @@ const Courses = ({ filterHandler }) => {
 
   useEffect(() => {
     try {
+      localStorage.removeItem("course");
+    } catch (error) {}
+    try {
       setSelectedCourse(
         JSON.parse(localStorage.getItem("courses") || []).map((id) =>
           getCourseByID(id)
         ) || []
       );
+    } catch (error) {}
+
+    try {
       setSelectedMaaref(
         JSON.parse(localStorage.getItem("maaref") || []).map((id) =>
           getCourseByID(id)
