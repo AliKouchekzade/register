@@ -310,6 +310,19 @@ input[type="checkbox"]:hover {
   border-right: 1px solid #cbcbcb;
 }
 
+.timeStart170 {
+  grid-column-start: 21;
+}
+
+.timeStart175 {
+  grid-column-start: 22;
+}
+
+.timeStart180 {
+  grid-column-start: 23;
+  border-right: 1px solid #cbcbcb;
+}
+
 @media screen and (min-width: 1536px) {
   .cnt {
     width: 1536px;

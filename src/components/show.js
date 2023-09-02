@@ -30,14 +30,12 @@ const Show = ({ res, firstLoad }) => {
       );
     }
 
-    for (let i = 0; i < 126; i++) {
+    for (let i = 0; i < 132; i++) {
       time.push(
         <div
-          className={`border-y border-y-[#f9f9f9]  text-left relative ${
-            i % 3 === 0
-              ? " border-r border-x-[#CBCBCB]"
-              : "border-r border-x-[#f9f9f9]"
-          }`}
+          className={`border-y z-10 border-y-[#f9f9f9]  text-left relative border-x-[#f9f9f9] timeStart${
+            (i % 22) * 5 + 75
+          } day${Math.floor(i / 22)}`}
         ></div>
       );
     }
@@ -101,7 +99,7 @@ const Show = ({ res, firstLoad }) => {
                     return course.days.map((day, index) => {
                       return (
                         <div
-                          className={`day${day} timeStart${
+                          className={`z-20 day${day} timeStart${
                             course.time[index].start * 10
                           } interval${
                             (course.time[index].end -
