@@ -32,14 +32,19 @@ const Courses = ({ filterHandler }) => {
   }
 
   useEffect(() => {
-    getCourse();
     try {
       setSelectedCourse(
         JSON.parse(localStorage.getItem("course") || []).map((id) =>
           getCourseByID(id)
         ) || []
       );
+      setSelectedMaaref(
+        JSON.parse(localStorage.getItem("maaref") || []).map((id) =>
+          getCourseByID(id)
+        ) || []
+      );
     } catch (error) {}
+    getCourse();
   }, []);
 
   function getCourseByID(id) {
@@ -105,14 +110,20 @@ const Courses = ({ filterHandler }) => {
                   <Trigger
                     name={course.name}
                     open={false}
-                    checked={selectedCourse.filter((s) => s.No === course.No)}
+                    checked={[
+                      ...selectedCourse.filter((s) => s.No === course.No),
+                      ...selectedMaaref.filter((s) => s.No === course.No),
+                    ]}
                   />
                 }
                 triggerWhenOpen={
                   <Trigger
                     name={course.name}
                     open={true}
-                    checked={selectedCourse.filter((s) => s.No === course.No)}
+                    checked={[
+                      ...selectedCourse.filter((s) => s.No === course.No),
+                      ...selectedMaaref.filter((s) => s.No === course.No),
+                    ]}
                   />
                 }
                 easing={"cubic-bezier(0.175, 0.85, 0.32, 1.5)"}
@@ -165,7 +176,7 @@ const Courses = ({ filterHandler }) => {
                                 )
                               );
                               localStorage.setItem(
-                                "Maaref",
+                                "maaref",
                                 JSON.stringify(
                                   selectedMaaref
                                     .filter((sel) => sel.ID !== list.ID)
@@ -175,7 +186,7 @@ const Courses = ({ filterHandler }) => {
                             } else {
                               setSelectedMaaref([...selectedMaaref, list]);
                               localStorage.setItem(
-                                "Maaref",
+                                "maaref",
                                 JSON.stringify([
                                   ...selectedMaaref.map((c) => c.ID),
                                   list.ID,
@@ -208,15 +219,7 @@ const Courses = ({ filterHandler }) => {
       )}
 
       <button
-        onClick={() =>
-          filterHandler(
-            selectedCourse,
-            selectedCourse
-              .map((c) => c.No)
-              .filter((val, index, array) => array.indexOf(val) === index)
-              .length
-          )
-        }
+        onClick={() => filterHandler(selectedCourse, selectedMaaref)}
         className="mt-3 bg-red-500 w-full rounded py-1.5 text-white"
       >
         فیلتر

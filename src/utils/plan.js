@@ -1,4 +1,4 @@
-import hasOverLap from "./overlap";
+import hasOverLap, { overlap } from "./overlap";
 
 function wait(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -20,7 +20,7 @@ function product() {
   );
 }
 
-export async function getplans(selectedCourse) {
+export async function getplans(selectedCourse, selectedMaaref) {
   const arr = selectedCourse.sort((a, b) => a.No - b.No);
 
   const courses = [];
@@ -33,5 +33,19 @@ export async function getplans(selectedCourse) {
   let x = product(...courses).filter((plan) => !hasOverLap(plan));
   if (JSON.stringify(x) === "[[]]") x = [];
 
-  return { course: x };
+  const xMaaref = [];
+
+
+  for (let plan of x) {
+    let maarefPlan = [];
+    for (let maaref of selectedMaaref) {
+      let over = plan.some((course) => overlap(course, maaref));
+      if (!over) maarefPlan.push(maaref);
+    }
+    xMaaref.push(maarefPlan);
+  }
+
+  console.log(xMaaref);
+
+  return { course: x, maaref: xMaaref };
 }

@@ -4,15 +4,18 @@ import { getplans } from "./utils/plan";
 import Show from "./components/show";
 
 function App() {
-  const [res, setRes] = useState({ pending: false, data: { course: [] } });
+  const [res, setRes] = useState({
+    pending: false,
+    data: { course: [], maaref: [] },
+  });
   const [firstLoad, setFirstLoad] = useState(true);
 
-  const filterHandler = (selectedCourse, r) => {
+  const filterHandler = (selectedCourse, selectedMaaref) => {
     if (selectedCourse.length) setFirstLoad(false);
     else setFirstLoad(true);
-    setRes({ pending: true, data: { course: [] } });
+    setRes({ pending: true, data: { course: [], maaref: [] } });
     async function get() {
-      const response = await getplans(selectedCourse, r);
+      const response = await getplans(selectedCourse, selectedMaaref);
       setRes({ pending: false, data: response });
     }
     get();

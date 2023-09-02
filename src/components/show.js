@@ -88,33 +88,57 @@ const Show = ({ res, firstLoad }) => {
               <p className={`text-center text-sm mb-8`}>
                 {res.data.course.length} برنامه وجود دارد
               </p>
-              {res.data.course.map((plan) => (
-                <div
-                  id="plan"
-                  key={Math.random()}
-                  className="border w-min m-auto rounded mb-14 grid"
-                >
-                  {render()}
-                  {plan.map((course) => {
-                    return course.days.map((day, index) => {
-                      return (
-                        <div
-                          className={`z-20 day${day} timeStart${
-                            course.time[index].start * 10
-                          } interval${
-                            (course.time[index].end -
-                              course.time[index].start) *
-                            10
-                          } bg-rose-100 shadow-md text-[5.5px] min-[410px]:text-[6px] min-[500px]:text-[6.5px] min-[600px]:text-[7px] md:text-[8px] lg:text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
+              {res.data.course.map((plan, index) => (
+                <div className="mb-16">
+                  <div
+                    id="plan"
+                    key={Math.random()}
+                    className="border w-min m-auto rounded grid"
+                  >
+                    {render()}
+                    {plan.map((course) => {
+                      return course.days.map((day, index) => {
+                        return (
+                          <div
+                            className={`z-20 day${day} timeStart${
+                              course.time[index].start * 10
+                            } interval${
+                              (course.time[index].end -
+                                course.time[index].start) *
+                              10
+                            } bg-rose-100 shadow-md text-[5.5px] min-[410px]:text-[6px] min-[500px]:text-[6.5px] min-[600px]:text-[7px] md:text-[8px] lg:text-[10px] flex flex-col justify-evenly  items-center text-center overflow-hidden`}
+                          >
+                            <p>
+                              {course.name}-{number[course.GNo]}
+                            </p>
+                            <p>{course.professor}</p>
+                          </div>
+                        );
+                      });
+                    })}
+                  </div>
+                  <div className="mt-2 grid grid-cols-2 gap-2">
+                    {res.data.maaref[index].map((ma) => (
+                      <div className="flex gap-x-1 items-center">
+                        <input
+                          name={index}
+                          id={ma.ID / (index + 2)}
+                          type="radio"
+                        />
+                        <label
+                          htmlFor={ma.ID / (index + 2)}
+                          className="text-xs"
                         >
-                          <p>
-                            {course.name}-{number[course.GNo]}
-                          </p>
-                          <p>{course.professor}</p>
-                        </div>
-                      );
-                    });
-                  })}
+                          {ma.name}
+                          {"-"}
+                          {ma.GNo}
+                          {"-"}
+                          {ma.professor}
+                          {ma.days2}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
