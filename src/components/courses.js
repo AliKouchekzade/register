@@ -103,6 +103,9 @@ const Courses = ({ filterHandler }) => {
                       className="flex gap-x-2 md:gap-x-3 items-center"
                     >
                       <input
+                        disabled={
+                          list.professor.includes("ورودی") || !list.days2
+                        }
                         checked={selectedCourse.includes(list)}
                         onChange={() => {
                           if (selectedCourse.includes(list)) {
