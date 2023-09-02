@@ -88,7 +88,7 @@ const Show = ({ res, firstLoad }) => {
   }
 
   return (
-    <section className="lg:flex relative min-h-[100px] border flex-grow rounded flex-col p-4">
+    <section className="lg:flex relative min-h-[160px] border flex-grow rounded flex-col p-4">
       <div
         className={`left-0 absolute top-10 text-center text-[10px] md:text-sm w-full ${
           firstLoad && !res.pending ? "" : "invisible"

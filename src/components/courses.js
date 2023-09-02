@@ -34,7 +34,7 @@ const Courses = ({ filterHandler }) => {
   useEffect(() => {
     try {
       setSelectedCourse(
-        JSON.parse(localStorage.getItem("course") || []).map((id) =>
+        JSON.parse(localStorage.getItem("courses") || []).map((id) =>
           getCourseByID(id)
         ) || []
       );
@@ -151,7 +151,7 @@ const Courses = ({ filterHandler }) => {
                                 )
                               );
                               localStorage.setItem(
-                                "course",
+                                "courses",
                                 JSON.stringify(
                                   selectedCourse
                                     .filter((sel) => sel.ID !== list.ID)
@@ -161,7 +161,7 @@ const Courses = ({ filterHandler }) => {
                             } else {
                               setSelectedCourse([...selectedCourse, list]);
                               localStorage.setItem(
-                                "course",
+                                "courses",
                                 JSON.stringify([
                                   ...selectedCourse.map((c) => c.ID),
                                   list.ID,
