@@ -4,13 +4,13 @@ import { getplans } from "./utils/plan";
 import Show from "./components/show";
 
 function App() {
-  const [res, setRes] = useState({ pending: false, data: [] });
+  const [res, setRes] = useState({ pending: false, data: { course: [] } });
   const [firstLoad, setFirstLoad] = useState(true);
 
   const filterHandler = (selectedCourse, r) => {
     if (selectedCourse.length) setFirstLoad(false);
     else setFirstLoad(true);
-    setRes({ pending: true, data: [] });
+    setRes({ pending: true, data: { course: [] } });
     async function get() {
       const response = await getplans(selectedCourse, r);
       setRes({ pending: false, data: response });

@@ -16,6 +16,7 @@ const Courses = ({ filterHandler }) => {
   const [courses, setCourses] = useState({ pending: true, data: [] });
 
   const [selectedCourse, setSelectedCourse] = useState([]);
+  const [selectedMaaref, setSelectedMaaref] = useState([]);
   const [selectedOption, setSelectedOption] = useState({
     value: 25,
     label: "مهندسی برق",
@@ -62,7 +63,7 @@ const Courses = ({ filterHandler }) => {
             dir="rtl"
             placeholder="جستجو..."
             style={{ border: "1px solid #CBCBCB" }}
-            className="rounded flex-grow w-full text-sm md:text-base outline-1 outline-[#CBCBCB] py-1.5"
+            className="rounded flex-grow w-full text-sm md:text-base outline-1 outline-[#CBCBCB] p-1.5"
           />
         </form>
         <Select
@@ -126,29 +127,61 @@ const Courses = ({ filterHandler }) => {
                         disabled={
                           list.professor.includes("ورودی") || !list.days2
                         }
-                        checked={selectedCourse.includes(list)}
+                        checked={
+                          selectedCourse.includes(list) ||
+                          selectedMaaref.includes(list)
+                        }
                         onChange={() => {
-                          if (selectedCourse.includes(list)) {
-                            setSelectedCourse(
-                              selectedCourse.filter((sel) => sel.ID !== list.ID)
-                            );
-                            localStorage.setItem(
-                              "course",
-                              JSON.stringify(
-                                selectedCourse
-                                  .filter((sel) => sel.ID !== list.ID)
-                                  .map((c) => c.ID)
-                              )
-                            );
+                          if (Math.floor(list.No / 1000) !== 37) {
+                            if (selectedCourse.includes(list)) {
+                              setSelectedCourse(
+                                selectedCourse.filter(
+                                  (sel) => sel.ID !== list.ID
+                                )
+                              );
+                              localStorage.setItem(
+                                "course",
+                                JSON.stringify(
+                                  selectedCourse
+                                    .filter((sel) => sel.ID !== list.ID)
+                                    .map((c) => c.ID)
+                                )
+                              );
+                            } else {
+                              setSelectedCourse([...selectedCourse, list]);
+                              localStorage.setItem(
+                                "course",
+                                JSON.stringify([
+                                  ...selectedCourse.map((c) => c.ID),
+                                  list.ID,
+                                ])
+                              );
+                            }
                           } else {
-                            setSelectedCourse([...selectedCourse, list]);
-                            localStorage.setItem(
-                              "course",
-                              JSON.stringify([
-                                ...selectedCourse.map((c) => c.ID),
-                                list.ID,
-                              ])
-                            );
+                            if (selectedMaaref.includes(list)) {
+                              setSelectedMaaref(
+                                selectedMaaref.filter(
+                                  (sel) => sel.ID !== list.ID
+                                )
+                              );
+                              localStorage.setItem(
+                                "Maaref",
+                                JSON.stringify(
+                                  selectedMaaref
+                                    .filter((sel) => sel.ID !== list.ID)
+                                    .map((c) => c.ID)
+                                )
+                              );
+                            } else {
+                              setSelectedMaaref([...selectedMaaref, list]);
+                              localStorage.setItem(
+                                "Maaref",
+                                JSON.stringify([
+                                  ...selectedMaaref.map((c) => c.ID),
+                                  list.ID,
+                                ])
+                              );
+                            }
                           }
                         }}
                         className="w-4 h-4"

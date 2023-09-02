@@ -33,5 +33,5 @@ export async function getplans(selectedCourse) {
   let x = product(...courses).filter((plan) => !hasOverLap(plan));
   if (JSON.stringify(x) === "[[]]") x = [];
 
-  return x;
+  return { course: x };
 }

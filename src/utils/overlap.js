@@ -1,4 +1,4 @@
-function overlap(A, B) {
+export function overlap(A, B) {
   const sameDays = findSameDays(A.days, B.days);
   if (!sameDays.length) return false;
 

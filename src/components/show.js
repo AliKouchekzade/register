@@ -83,12 +83,12 @@ const Show = ({ res, firstLoad }) => {
         </div>
       ) : (
         <>
-          {res.data.length ? (
+          {res.data.course.length ? (
             <div>
               <p className={`text-center text-sm mb-8`}>
-                {res.data.length} برنامه وجود دارد
+                {res.data.course.length} برنامه وجود دارد
               </p>
-              {res.data.map((plan) => (
+              {res.data.course.map((plan) => (
                 <div
                   id="plan"
                   key={Math.random()}
