@@ -12,6 +12,7 @@ const Courses = ({ filterHandler }) => {
     { value: 21, label: "مهندسی صنایع" },
     { value: 22, label: "علوم ریاضی" },
     { value: 23, label: "شیمی" },
+    { value: 24, label: "فیزیک" },
     { value: 25, label: "مهندسی برق" },
     { value: 31, label: "مرکز زبان ها و زبان شناسی" },
     { value: 33, label: "مرکز آموزش مهارت های مهندسی" },
