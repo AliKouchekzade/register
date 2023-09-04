@@ -8,6 +8,8 @@ import Select from "react-select";
 
 const Courses = ({ filterHandler }) => {
   const options = [
+    { value: 20, label: "مهندسی عمران" },
+    { value: 21, label: "مهندسی صنایع" },
     { value: 25, label: "مهندسی برق" },
     { value: 37, label: "مرکز معارف اسلامی و علوم انسانی" },
     { value: 31, label: "مرکز زبان ها و زبان شناسی" },
@@ -83,6 +85,7 @@ const Courses = ({ filterHandler }) => {
           value={selectedOption}
           onChange={(option) => {
             setSelectedOption(option);
+            setSearchInput("");
             getCourse(option.value);
           }}
           options={options}
