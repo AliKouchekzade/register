@@ -235,6 +235,22 @@ input[type="checkbox"]:hover {
   grid-column: span 8 / span 8;
 }
 
+.interval45 {
+  grid-column: span 9 / span 9;
+}
+
+.interval50 {
+  grid-column: span 10 / span 10;
+}
+
+.interval55 {
+  grid-column: span 11 / span 11;
+}
+
+.interval60 {
+  grid-column: span 12 / span 12;
+}
+
 .timeStart75 {
   grid-column-start: 2;
   border-right: 1px solid #cbcbcb;
