@@ -211,6 +211,10 @@ input[type="checkbox"]:hover {
   grid-row-start: 8;
 }
 
+.interval10 {
+  grid-column: span 2 / span 2;
+}
+
 .interval15 {
   grid-column: span 3 / span 3;
 }

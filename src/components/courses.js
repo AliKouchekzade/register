@@ -17,6 +17,7 @@ const Courses = ({ filterHandler }) => {
     { value: 31, label: "مرکز زبان ها و زبان شناسی" },
     { value: 33, label: "مرکز آموزش مهارت های مهندسی" },
     { value: 37, label: "مرکز معارف اسلامی و علوم انسانی" },
+    { value: 45, label: "مهندسی هوافضا" },
   ];
 
   const [courses, setCourses] = useState({ pending: true, data: [] });
@@ -221,8 +222,7 @@ const Courses = ({ filterHandler }) => {
                         {list.professor}
                         <span className="text-[7px] md:text-[10px]">
                           {" "}
-                          ({list.GNo})
-                          {"  "}({list.days2})
+                          ({list.GNo}){"  "}({list.days2})
                         </span>
                       </label>
                     </div>
@@ -237,7 +237,7 @@ const Courses = ({ filterHandler }) => {
         onClick={() => filterHandler(selectedCourse, selectedMaaref)}
         className="mt-3 bg-red-500 w-full rounded py-1.5 text-white"
       >
-        فیلتر
+        نمایش
       </button>
     </section>
   );
