@@ -59,7 +59,6 @@ const Show = ({ res, firstLoad }) => {
     ];
 
     let time = [
-      <div className="border text-left text-xs md:text-sm relative"></div>,
       <div className="border text-left text-xs md:text-sm relative">
         <span className="absolute -top-4 md:-top-5 translate-x-1/2">
           {+7.5}
@@ -76,12 +75,12 @@ const Show = ({ res, firstLoad }) => {
       );
     }
 
-    for (let i = 0; i < 140; i++) {
+    for (let i = 0; i < 132; i++) {
       time.push(
         <div
           className={`border-y z-10 border-y-[#f9f9f9]  text-left relative border-x-[#f9f9f9] timeStart${
-            (i % 23) * 5 + 70
-          } day${Math.floor(i / 23)}`}
+            (i % 22) * 5 + 75
+          } day${Math.floor(i / 22)}`}
         ></div>
       );
     }

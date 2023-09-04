@@ -4726,7 +4726,7 @@ export const data = [
     time: [{ start: 13, end: 16 }],
     days2: "یک‌شنبه 13 تا 16",
   },
-  {
+  /* {
     ID: 331111,
     No: 33111,
     GNo: 1,
@@ -4813,7 +4813,7 @@ export const data = [
     days: [3],
     time: [{ start: 16.5, end: 20 }],
     days2: "سه‌شنبه 16:30 تا 20",
-  },
+  },*/
   {
     ID: 3712301,
     No: 37123,
