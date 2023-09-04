@@ -44,16 +44,16 @@ body {
 }
 
 .courses {
-  max-height: calc(100vh - 370px);
+  max-height: 400px;
 }
 
 #coursesDiv {
-  height: calc(100vh - 500px);
+  height: 270px;
   max-height: 900px;
 }
 
 .coursesDiv {
-  height: calc(100vh - 500px);
+  height: 270px;
   max-height: 900px;
 }
 
@@ -66,62 +66,62 @@ input[type="checkbox"]:hover {
 }
 
 #plan {
-  grid-template-columns: 50px repeat(22, 13px);
+  grid-template-columns: 50px repeat(23, 12px);
   grid-template-rows: 0px repeat(6, 28px);
 }
 
 @media screen and (min-width: 410px) {
   #plan {
-    grid-template-columns: 50px repeat(22, 14px);
+    grid-template-columns: 50px repeat(23, 13px);
     grid-template-rows: 0px repeat(6, 34px);
   }
 }
 
 @media screen and (min-width: 460px) {
   #plan {
-    grid-template-columns: 50px repeat(22, 16.5px);
+    grid-template-columns: 50px repeat(23, 15px);
     grid-template-rows: 0px repeat(6, 35px);
   }
 }
 
 @media screen and (min-width: 500px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 17px);
+    grid-template-columns: 70px repeat(23, 16px);
     grid-template-rows: 0px repeat(6, 37px);
   }
 }
 
 @media screen and (min-width: 550px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 20px);
+    grid-template-columns: 70px repeat(23, 18px);
     grid-template-rows: 0px repeat(6, 37px);
   }
 }
 
 @media screen and (min-width: 600px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 22px);
+    grid-template-columns: 70px repeat(23, 21px);
     grid-template-rows: 0px repeat(6, 39px);
   }
 }
 
 @media screen and (min-width: 650px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 24px);
+    grid-template-columns: 70px repeat(23, 22px);
     grid-template-rows: 0px repeat(6, 40px);
   }
 }
 
 @media screen and (min-width: 700px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 26px);
+    grid-template-columns: 70px repeat(23, 24px);
     grid-template-rows: 0px repeat(6, 40px);
   }
 }
 
 @media screen and (min-width: 768px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 16px);
+    grid-template-columns: 70px repeat(23, 15px);
     grid-template-rows: 0px repeat(6, 45px);
   }
   .courses {
@@ -139,42 +139,35 @@ input[type="checkbox"]:hover {
 
 @media screen and (min-width: 900px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 20px);
-    grid-template-rows: 0px repeat(6, 56px);
-  }
-}
-
-@media screen and (min-width: 900px) {
-  #plan {
-    grid-template-columns: 70px repeat(22, 20px);
+    grid-template-columns: 70px repeat(23, 18px);
     grid-template-rows: 0px repeat(6, 56px);
   }
 }
 
 @media screen and (min-width: 1024px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 23px);
+    grid-template-columns: 70px repeat(23, 21px);
     grid-template-rows: 0px repeat(6, 56px);
   }
 }
 
 @media screen and (min-width: 1270px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 30px);
+    grid-template-columns: 70px repeat(23, 28px);
     grid-template-rows: 0px repeat(6, 56px);
   }
 }
 
 @media screen and (min-width: 1440px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 36px);
+    grid-template-columns: 70px repeat(23, 34px);
     grid-template-rows: 0px repeat(6, 56px);
   }
 }
 
 @media screen and (min-width: 1536px) {
   #plan {
-    grid-template-columns: 70px repeat(22, 40px);
+    grid-template-columns: 70px repeat(23, 38px);
     grid-template-rows: 0px repeat(6, 56px);
   }
 }
@@ -227,99 +220,111 @@ input[type="checkbox"]:hover {
   grid-column: span 6 / span 6;
 }
 
-.timeStart75 {
+.interval35 {
+  grid-column: span 7 / span 7;
+}
+
+.interval40 {
+  grid-column: span 8 / span 8;
+}
+
+.timeStart70 {
   grid-column-start: 2;
+}
+
+.timeStart75 {
+  grid-column-start: 3;
   border-right: 1px solid #cbcbcb;
 }
 
 .timeStart80 {
-  grid-column-start: 3;
-}
-
-.timeStart85 {
   grid-column-start: 4;
 }
 
-.timeStart90 {
+.timeStart85 {
   grid-column-start: 5;
+}
+
+.timeStart90 {
+  grid-column-start: 6;
   border-right: 1px solid #cbcbcb;
 }
 
 .timeStart95 {
-  grid-column-start: 6;
-}
-
-.timeStart100 {
   grid-column-start: 7;
 }
 
-.timeStart105 {
+.timeStart100 {
   grid-column-start: 8;
+}
+
+.timeStart105 {
+  grid-column-start: 9;
   border-right: 1px solid #cbcbcb;
 }
 
 .timeStart110 {
-  grid-column-start: 9;
-}
-
-.timeStart115 {
   grid-column-start: 10;
 }
 
-.timeStart120 {
+.timeStart115 {
   grid-column-start: 11;
+}
+
+.timeStart120 {
+  grid-column-start: 12;
   border-right: 1px solid #cbcbcb;
 }
 
 .timeStart125 {
-  grid-column-start: 12;
-}
-
-.timeStart130 {
   grid-column-start: 13;
 }
 
-.timeStart135 {
+.timeStart130 {
   grid-column-start: 14;
+}
+
+.timeStart135 {
+  grid-column-start: 15;
   border-right: 1px solid #cbcbcb;
 }
 
 .timeStart140 {
-  grid-column-start: 15;
-}
-
-.timeStart145 {
   grid-column-start: 16;
 }
 
-.timeStart150 {
+.timeStart145 {
   grid-column-start: 17;
+}
+
+.timeStart150 {
+  grid-column-start: 18;
   border-right: 1px solid #cbcbcb;
 }
 
 .timeStart155 {
-  grid-column-start: 18;
-}
-
-.timeStart160 {
   grid-column-start: 19;
 }
 
-.timeStart165 {
+.timeStart160 {
   grid-column-start: 20;
+}
+
+.timeStart165 {
+  grid-column-start: 21;
   border-right: 1px solid #cbcbcb;
 }
 
 .timeStart170 {
-  grid-column-start: 21;
-}
-
-.timeStart175 {
   grid-column-start: 22;
 }
 
-.timeStart180 {
+.timeStart175 {
   grid-column-start: 23;
+}
+
+.timeStart180 {
+  grid-column-start: 24;
   border-right: 1px solid #cbcbcb;
 }
 
