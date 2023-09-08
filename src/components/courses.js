@@ -16,9 +16,11 @@ const Courses = ({ filterHandler }) => {
     { value: 25, label: "مهندسی برق" },
     { value: 26, label: "مهندسی شیمی و نفت" },
     { value: 27, label: "مهندسی  علم و مواد" },
+    { value: 28, label: "مهندسی مکانیک" },
     { value: 31, label: "مرکز زبان ها و زبان شناسی" },
     { value: 33, label: "مرکز آموزش مهارت های مهندسی" },
     { value: 37, label: "مرکز معارف اسلامی و علوم انسانی" },
+    { value: 40, label: "مهندسی کامپیوتر" },
     { value: 45, label: "مهندسی هوافضا" },
   ];
 
