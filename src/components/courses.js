@@ -36,6 +36,8 @@ const Courses = ({ filterHandler }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isPending, startTransition] = useTransition();
 
+  const [units, setUnit] = useState(0);
+
   async function getCourse(department) {
     setCourses({ pending: true, data: [] });
     const response = await showCourses(department);
@@ -63,6 +65,17 @@ const Courses = ({ filterHandler }) => {
     } catch (error) {}
     getCourse();
   }, []);
+
+  useEffect(() => {
+    const emitted = selectedCourse
+      .filter(
+        (value, index, array) =>
+          array.findIndex((obj) => obj.No === value.No) === index
+      )
+      .map((val) => val.unit)
+      .reduce((tot, a) => tot + a, 0);
+    setUnit(emitted);
+  }, [selectedCourse]);
 
   function getCourseByID(id) {
     return data.find((d) => d.ID === id);
@@ -243,6 +256,14 @@ const Courses = ({ filterHandler }) => {
       >
         نمایش
       </button>
+      {courses.pending ? (
+        ""
+      ) : (
+        <p className="text-[10px] flex gap-x-[2px] items-center">
+          واحد
+          <span>{units}</span>
+        </p>
+      )}
     </section>
   );
 };
