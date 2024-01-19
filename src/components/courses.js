@@ -54,7 +54,9 @@ const Courses = ({ filterHandler }) => {
           getCourseByID(id)
         ) || []
       );
-    } catch (error) {}
+    } catch (error) {
+      localStorage.removeItem("courses");
+    }
 
     try {
       setSelectedMaaref(
@@ -75,10 +77,16 @@ const Courses = ({ filterHandler }) => {
       .map((val) => val.unit)
       .reduce((tot, a) => tot + a, 0);
     setUnit(emitted);
+    console.log(selectedCourse)
   }, [selectedCourse]);
 
   function getCourseByID(id) {
-    return data.find((d) => d.ID === id);
+    let ret = data.find((d) => d.ID === id);
+    if (ret === undefined) {
+      ret = [];
+      localStorage.removeItem("courses");
+    }
+    return ret;
   }
 
   return (
